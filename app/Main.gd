@@ -6,10 +6,13 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#$HUD.show_message("Dodge the\nCreeps!")
 	randomize()
 
 # lié au signal "hit" de la scene "Player" instancié dans la scene "Main"
 func game_over():
+	$Music.stop()
+	$DeathSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
@@ -20,6 +23,7 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$Music.play()
 
 
 func _on_MobTimer_timeout():
