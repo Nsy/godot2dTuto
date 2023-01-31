@@ -2,20 +2,22 @@ extends Node
 
 # dans l'inspector de "Main" on peut voir un "Mob Scene" et selectionner le Mob.tscn
 export(PackedScene) var mob_scene # to allow us to choose the Mob scene we want to instance.
-var score
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	new_game()
 
 # lié au signal "hit" de la scene "Player" instancié dans la scene "Main"
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	$HUD.show_game_over()
 
 func new_game():
 	score = 0
+	# The call_group() function calls the named function on every node in a group
+	get_tree().call_group("mobs", "queue_free")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 
@@ -48,7 +50,14 @@ func _on_MobTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	score = score + 1
+	$HUD.update_score(score)
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+
+
+func _on_HUD_start_game():
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")
+	new_game();
