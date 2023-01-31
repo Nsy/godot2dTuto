@@ -6,7 +6,7 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$HUD.show_message("Dodge the\nCreeps!")
+	#$HUD.show_message("DODGE_MSG")
 	randomize()
 
 # lié au signal "hit" de la scene "Player" instancié dans la scene "Main"
@@ -63,5 +63,5 @@ func _on_StartTimer_timeout():
 
 func _on_HUD_start_game():
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
+	$HUD.show_message("READY_MSG")
 	new_game();

@@ -1,0 +1,15 @@
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+
+msgid "START_BUTTON"
+msgstr "Démarrer"
+
+msgid "DODGE_MSG"
+msgstr "Evite les Mobs !"
+
+msgid "GAME_OVER"
+msgstr "Game Over !"
+
+msgid "READY_MSG"
+msgstr "Preparez-vous !"

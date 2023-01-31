@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
+[ext_resource path="res://locale/english.png" type="Texture" id=3]
+[ext_resource path="res://locale/french.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -35,8 +37,7 @@ margin_top = -50.5
 margin_right = 201.5
 margin_bottom = 50.5
 custom_fonts/font = SubResource( 1 )
-text = "Dodge the
-Creeps!"
+text = "DODGE_MSG"
 align = 1
 valign = 1
 
@@ -45,17 +46,30 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -58.5
-margin_top = -103.0
-margin_right = 58.5
-margin_bottom = -48.0
+margin_left = -188.0
+margin_top = -84.0
+margin_right = 188.0
+margin_bottom = -29.0
 custom_fonts/font = SubResource( 1 )
 shortcut = SubResource( 3 )
-text = "Start"
+text = "START_BUTTON"
+icon_align = 1
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="ToggleLanguage" type="CheckBox" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 524.0
+margin_bottom = 524.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_icons/radio_checked = ExtResource( 4 )
+custom_icons/checked = ExtResource( 4 )
+custom_icons/radio_unchecked = ExtResource( 3 )
+custom_icons/unchecked = ExtResource( 3 )
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
+[connection signal="toggled" from="ToggleLanguage" to="." method="_on_ToggleLanguage_toggled"]

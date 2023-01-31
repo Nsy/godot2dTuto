@@ -13,11 +13,11 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func show_game_over():
-	show_message("Game Over")
+	show_message("GAME_OVER")
 	# Wait until the MessageTimer has counted down.
 	yield($MessageTimer, "timeout")
 
-	$Message.text = "Dodge the\nCreeps!"
+	$Message.text = "DODGE_MSG"
 	$Message.show()
 	# Make a one-shot timer and wait for it to finish.
 	yield(get_tree().create_timer(1), "timeout")
@@ -33,3 +33,12 @@ func _on_MessageTimer_timeout():
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	emit_signal("start_game")
+
+
+func _on_ToggleLanguage_toggled(button_pressed):
+	if TranslationServer.get_locale() == "en_GB":
+		TranslationServer.set_locale("fr")
+	else:
+		TranslationServer.set_locale("en_GB")
+	print(TranslationServer.get_locale())
+

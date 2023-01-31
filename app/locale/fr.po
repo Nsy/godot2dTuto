@@ -1,0 +1,23 @@
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+"Project-Id-Version: godot 2dTuto\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "START_BUTTON"
+msgstr "Démarrer"
+
+msgid "DODGE_MSG"
+msgstr "Evites les Mobs !"
+
+msgid "GAME_OVER"
+msgstr "Perdu !"
+
+msgid "READY_MSG"
+msgstr "Preparez-vous !"

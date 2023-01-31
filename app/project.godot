@@ -58,6 +58,10 @@ start_game={
  ]
 }
 
+[locale]
+
+translations=PoolStringArray( "res://locale/en.po", "res://locale/fr.po" )
+
 [physics]
 
 common/enable_pause_aware_picking=true
